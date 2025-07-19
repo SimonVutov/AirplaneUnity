@@ -52,8 +52,8 @@ public class plane : MonoBehaviour
             if (i == 0) wings[i].transform.localEulerAngles = new Vector3(roll * smoothedPitchRoll.x, 0, 0);
             if (i == 1) wings[i].transform.localEulerAngles = new Vector3(roll * -smoothedPitchRoll.x, 0, 0);
 
-            if (i == 4 || i == 5) rb.AddForceAtPosition(-wings[i].transform.up * wings[i].transform.InverseTransformDirection(rb.velocity).y * liftMultiplyer * transform.localScale.magnitude * verticalStabilzer, wings[i].transform.position);
-            else rb.AddForceAtPosition(-wings[i].transform.up * wings[i].transform.InverseTransformDirection(rb.velocity).y * liftMultiplyer * transform.localScale.magnitude, wings[i].transform.position);
+            if (i == 4 || i == 5) rb.AddForceAtPosition(-wings[i].transform.up * wings[i].transform.InverseTransformDirection(rb.linearVelocity).y * liftMultiplyer * transform.localScale.magnitude * verticalStabilzer, wings[i].transform.position);
+            else rb.AddForceAtPosition(-wings[i].transform.up * wings[i].transform.InverseTransformDirection(rb.linearVelocity).y * liftMultiplyer * transform.localScale.magnitude, wings[i].transform.position);
         }
     }
 
